@@ -1,0 +1,29 @@
+ 
+#include<math.h>
+#include<stdio.h> 
+float f(float x) { 
+    return(x*x*x-5*x-7); 
+  } main () {      
+    float x0, x1, x2, e;      
+    int k=0; 
+    printf("\n  Enter accuracy: ");      
+    scanf("%f",&e); 
+        do 
+    { 
+        printf("\n  Enter the values of x0 x1:");        
+        scanf("%f%f”, &x0,&x1);          
+      } while(f(x0) *f(x1)>=0.0);         
+        do 
+       { 
+    x2=x0-(f(x0)/(f(x1)-f(x0))) *(x1-x0);     
+    printf("\nk=%d  x=%f    f(x)=%f",k,  x2,  f(x2)); 
+    if(f(x0) *f(x2) <0.0)     
+    x1=x2;       
+    else      
+    x0=x2; 
+    k=k+1; 
+ } 
+    while(fabs(f(x2))>=e); 
+    printf("\n\n The root is=%f  No. of iteration=%d ",x2,k); 
+       
+} 

@@ -1,0 +1,44 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int n,m,i,j,k;
+    float a[20][20],x[20],s;
+    printf("order of matrix a and number of iteration");
+    scanf("%d%d",&n,&m);
+    printf("\n enter the elements of arguements matrix");
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=n+1;j++)
+        {
+            scanf("%f",&a[i][j]);
+        }
+        printf("\n");
+    }
+    printf("enter the initial apporximation \n\n");
+    for(i=1;i<=n;i++)
+    
+    {
+        scanf("%f",&x[i]);
+        
+    }
+    for(k=1;k<=m;k++)
+    {
+        for(i=1;i<=n;i++)
+        {
+            s=a[i][n+1];
+            for(j=1;j<=n;j++)
+            {
+                if(j!=i)
+                s=s-a[i][j]*x[j];
+            }
+            x[i]=s/a[i][i];
+            printf("\n x[%d]=3.2f /n",i,x[i]);
+            
+        }
+}
+printf("\n\n the solution is\n\n");
+for(i=1;i<=n;i++)
+printf("\n x[%d]=%6.4f\n",i,x[i]);
+}
